@@ -51,7 +51,7 @@
         "description": "",
         "items": [
           {
-            "id": "a7415a0b-9442-434f-9dd9-e59184363e19",
+            "id": "bee9f123-7176-4cf8-9e63-d860cdade156",
             "ancestors": [],
             "type": "function",
             "name": "search",
@@ -89,13 +89,13 @@
             "docLength": null,
             "length": 10,
             "comment": {
-              "description": "Determines whether a specific element `x` is present in an array `arr` within a specified range `start` to `end`. It recursively searches for the element by comparing its value with the middle element of the range and then recursively searching on either side of it.",
+              "description": "Searches for an element `x` in a given array `arr` within a specified range `start` to `end`. It returns `true` if `x` is found, otherwise it recursively calls itself until the end of the array is reached.",
               "params": [
                 {
                   "name": "arr",
                   "type": "array",
                   "value": null,
-                  "description": "2D array that contains the searched value."
+                  "description": "array whose elements are being searched for the specified value `x`."
                 },
                 {
                   "name": "x",
@@ -105,25 +105,25 @@
                 },
                 {
                   "name": "start",
-                  "type": "integer",
+                  "type": "number",
                   "value": null,
-                  "description": "index of the array where the search should start."
+                  "description": "index of the leftmost element in the array that should be searched for the specified value `x`."
                 },
                 {
                   "name": "end",
-                  "type": "integer",
+                  "type": "number",
                   "value": null,
-                  "description": "2nd half of the array that the function searches for the specified value `x`."
+                  "description": "2nd index of the array to be searched, indicating the last index at which the search should stop."
                 }
               ],
               "returns": {
                 "type": "boolean",
-                "description": "a boolean value indicating whether the specified element is present in the array."
+                "description": "a boolean value indicating whether the target element is present in the array."
               }
             }
           },
           {
-            "id": "a4e4aee1-d1e9-4118-9883-c82e0836ff2c",
+            "id": "333a6726-366d-41ed-b47d-73225b6724e8",
             "ancestors": [],
             "type": "function",
             "name": "getApplicationID",
@@ -140,7 +140,7 @@
             "docLength": null,
             "length": 10,
             "comment": {
-              "description": "Retrieves and returns the application ID based on the given parameters.",
+              "description": "Retrieves the application ID from a parameter or a database based on the provided name.",
               "params": [],
               "returns": {
                 "type": "integer",
@@ -149,15 +149,15 @@
             }
           },
           {
-            "id": "7119a82a-f242-4918-a3b3-e9777132326b",
+            "id": "a501f658-0bd5-4ad8-b858-bb6404744df1",
             "ancestors": [],
             "type": "function",
             "name": "newGeneration",
             "location": {
               "offset": " ",
               "indent": 0,
-              "insert": 26,
-              "start": 26
+              "insert": 25,
+              "start": 25
             },
             "params": [
               {
@@ -172,18 +172,18 @@
             "docLength": null,
             "length": 26,
             "comment": {
-              "description": "Takes an array of cells as input, loops through each cell, and calculates the probability of it being alive in the next generation based on its current state and the states of its neighbors. It returns the next generation of cells as an array of probabilities.",
+              "description": "Takes an array of cells as input, where each cell represents the state (alive or dead) of a cell in a grid. The function generates a new generation of cells based on the current generation and neighboring cells' states.",
               "params": [
                 {
                   "name": "cells",
                   "type": "array",
                   "value": null,
-                  "description": "2D array of cells that will be used to generate the next generation."
+                  "description": "2D grid of cells to be simulated, and each row of the grid contains the state of the cell (alive or dead) as a binary number."
                 }
               ],
               "returns": {
                 "type": "array",
-                "description": "an array of booleans representing the alive or dead state of each cell in the next generation."
+                "description": "an array of alive cells in the next generation, generated based on the given cells."
               }
             }
           }

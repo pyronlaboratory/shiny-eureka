@@ -1,20 +1,21 @@
 
 /**
- * @description Determines whether a specific element `x` is present in an array `arr`
- * within a specified range `start` to `end`. It recursively searches for the element
- * by comparing its value with the middle element of the range and then recursively
- * searching on either side of it.
+ * @description Searches for an element `x` in a given array `arr` within a specified
+ * range `start` to `end`. It returns `true` if `x` is found, otherwise it recursively
+ * calls itself until the end of the array is reached.
  * 
- * @param { array } arr - 2D array that contains the searched value.
+ * @param { array } arr - array whose elements are being searched for the specified
+ * value `x`.
  * 
  * @param { number } x - value being searched for in the array.
  * 
- * @param { integer } start - index of the array where the search should start.
+ * @param { number } start - index of the leftmost element in the array that should
+ * be searched for the specified value `x`.
  * 
- * @param { integer } end - 2nd half of the array that the function searches for the
- * specified value `x`.
+ * @param { number } end - 2nd index of the array to be searched, indicating the last
+ * index at which the search should stop.
  * 
- * @returns { boolean } a boolean value indicating whether the specified element is
+ * @returns { boolean } a boolean value indicating whether the target element is
  * present in the array.
  */
 const search = (arr, x, start, end) => {
@@ -30,7 +31,8 @@ const search = (arr, x, start, end) => {
 
 
 /**
- * @description Retrieves and returns the application ID based on the given parameters.
+ * @description Retrieves the application ID from a parameter or a database based on
+ * the provided name.
  * 
  * @returns { integer } a unique identifier for an application.
  */
@@ -45,18 +47,16 @@ const getApplicationID = () => {
  return appID;
 }
 
-
 /**
- * @description Takes an array of cells as input, loops through each cell, and
- * calculates the probability of it being alive in the next generation based on its
- * current state and the states of its neighbors. It returns the next generation of
- * cells as an array of probabilities.
+ * @description Takes an array of cells as input, where each cell represents the state
+ * (alive or dead) of a cell in a grid. The function generates a new generation of
+ * cells based on the current generation and neighboring cells' states.
  * 
- * @param { array } cells - 2D array of cells that will be used to generate the next
- * generation.
+ * @param { array } cells - 2D grid of cells to be simulated, and each row of the
+ * grid contains the state of the cell (alive or dead) as a binary number.
  * 
- * @returns { array } an array of booleans representing the alive or dead state of
- * each cell in the next generation.
+ * @returns { array } an array of alive cells in the next generation, generated based
+ * on the given cells.
  */
 function newGeneration(cells) {
   const nextGeneration = []
