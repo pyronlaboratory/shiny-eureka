@@ -11,12 +11,13 @@ public class CorsConfig {
   private String[] allowedOrigins;
   @Bean
   public WebMvcConfigurer corsConfigurer() {
+    
     return new WebMvcConfigurer() {
       /**
-       * Adds CORS mappings to a registry, specifying allowed origins, methods, headers,
-       * and credentials.
+       * Adds CORS mappings to a registry, allowing requests from any origin and specifying
+       * which HTTP methods, headers, and credentials are allowed for those requests.
        * 
-       * @param registry Cors registry that the function adds mappings to.
+       * @param registry Cors registry that the addCorsMappings method modifies.
        */
       @Override
       public void addCorsMappings(CorsRegistry registry) {

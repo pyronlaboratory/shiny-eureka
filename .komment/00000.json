@@ -7,15 +7,15 @@
         "description": "",
         "items": [
           {
-            "id": "f919175d-af48-4186-a1c9-fd54fba033e7",
+            "id": "f5c73492-5011-498d-8fd6-d967974847fa",
             "ancestors": [],
             "type": "function",
             "name": "addCorsMappings",
             "location": {
               "offset": " ",
               "indent": 6,
-              "insert": 15,
-              "start": 15
+              "insert": 16,
+              "start": 16
             },
             "returns": false,
             "params": [
@@ -28,12 +28,12 @@
             "docLength": null,
             "length": 9,
             "comment": {
-              "description": "Adds CORS mappings to a registry, specifying allowed origins, methods, headers, and credentials.",
+              "description": "Adds CORS mappings to a registry, allowing requests from any origin and specifying which HTTP methods, headers, and credentials are allowed for those requests.",
               "params": [
                 {
                   "name": "registry",
                   "type": "CorsRegistry",
-                  "description": "Cors registry that the function adds mappings to."
+                  "description": "Cors registry that the addCorsMappings method modifies."
                 }
               ],
               "returns": null
