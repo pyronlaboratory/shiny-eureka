@@ -22,7 +22,6 @@ const getApplicationID = () => {
  return appID;
 }
 
-
 function newGeneration(cells) {
   const nextGeneration = []
   for (let i = 0; i < cells.length; i++) {
