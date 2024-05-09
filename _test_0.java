@@ -14,10 +14,11 @@ public class CorsConfig {
     
     return new WebMvcConfigurer() {
       /**
-       * Adds CORS mappings to a registry, allowing requests from any origin and specifying
-       * which HTTP methods, headers, and credentials are allowed for those requests.
+       * Adds CORS mappings to a registry, allowing cross-origin resource sharing for all
+       * methods and headers, as well as exposing two specific headers (token and userId)
+       * with credentials enabled.
        * 
-       * @param registry Cors registry that the addCorsMappings method modifies.
+       * @param registry Cors registry that the function adds mappings to.
        */
       @Override
       public void addCorsMappings(CorsRegistry registry) {

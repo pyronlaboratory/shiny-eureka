@@ -7,7 +7,7 @@
         "description": "",
         "items": [
           {
-            "id": "f5c73492-5011-498d-8fd6-d967974847fa",
+            "id": "a02a558c-c8ab-4323-ae9c-e49bd4c073ab",
             "ancestors": [],
             "type": "function",
             "name": "addCorsMappings",
@@ -28,15 +28,163 @@
             "docLength": null,
             "length": 9,
             "comment": {
-              "description": "Adds CORS mappings to a registry, allowing requests from any origin and specifying which HTTP methods, headers, and credentials are allowed for those requests.",
+              "description": "Adds CORS mappings to a registry, allowing cross-origin resource sharing for all methods and headers, as well as exposing two specific headers (token and userId) with credentials enabled.",
               "params": [
                 {
                   "name": "registry",
                   "type": "CorsRegistry",
-                  "description": "Cors registry that the addCorsMappings method modifies."
+                  "description": "Cors registry that the function adds mappings to."
                 }
               ],
               "returns": null
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "_test_1.js",
+    "path": "_test_1.js",
+    "content": {
+      "structured": {
+        "description": "",
+        "items": [
+          {
+            "id": "a7415a0b-9442-434f-9dd9-e59184363e19",
+            "ancestors": [],
+            "type": "function",
+            "name": "search",
+            "location": {
+              "offset": " ",
+              "indent": 0,
+              "insert": 2,
+              "start": 2
+            },
+            "params": [
+              {
+                "name": "arr",
+                "value": null,
+                "type": null
+              },
+              {
+                "name": "x",
+                "value": null,
+                "type": null
+              },
+              {
+                "name": "start",
+                "value": null,
+                "type": null
+              },
+              {
+                "name": "end",
+                "value": null,
+                "type": null
+              }
+            ],
+            "returns": true,
+            "skip": false,
+            "jsx": false,
+            "docLength": null,
+            "length": 10,
+            "comment": {
+              "description": "Determines whether a specific element `x` is present in an array `arr` within a specified range `start` to `end`. It recursively searches for the element by comparing its value with the middle element of the range and then recursively searching on either side of it.",
+              "params": [
+                {
+                  "name": "arr",
+                  "type": "array",
+                  "value": null,
+                  "description": "2D array that contains the searched value."
+                },
+                {
+                  "name": "x",
+                  "type": "number",
+                  "value": null,
+                  "description": "value being searched for in the array."
+                },
+                {
+                  "name": "start",
+                  "type": "integer",
+                  "value": null,
+                  "description": "index of the array where the search should start."
+                },
+                {
+                  "name": "end",
+                  "type": "integer",
+                  "value": null,
+                  "description": "2nd half of the array that the function searches for the specified value `x`."
+                }
+              ],
+              "returns": {
+                "type": "boolean",
+                "description": "a boolean value indicating whether the specified element is present in the array."
+              }
+            }
+          },
+          {
+            "id": "a4e4aee1-d1e9-4118-9883-c82e0836ff2c",
+            "ancestors": [],
+            "type": "function",
+            "name": "getApplicationID",
+            "location": {
+              "offset": " ",
+              "indent": 0,
+              "insert": 14,
+              "start": 14
+            },
+            "params": [],
+            "returns": true,
+            "skip": false,
+            "jsx": false,
+            "docLength": null,
+            "length": 10,
+            "comment": {
+              "description": "Retrieves and returns the application ID based on the given parameters.",
+              "params": [],
+              "returns": {
+                "type": "integer",
+                "description": "a unique identifier for an application."
+              }
+            }
+          },
+          {
+            "id": "7119a82a-f242-4918-a3b3-e9777132326b",
+            "ancestors": [],
+            "type": "function",
+            "name": "newGeneration",
+            "location": {
+              "offset": " ",
+              "indent": 0,
+              "insert": 26,
+              "start": 26
+            },
+            "params": [
+              {
+                "name": "cells",
+                "value": null,
+                "type": null
+              }
+            ],
+            "returns": true,
+            "skip": false,
+            "jsx": false,
+            "docLength": null,
+            "length": 26,
+            "comment": {
+              "description": "Takes an array of cells as input, loops through each cell, and calculates the probability of it being alive in the next generation based on its current state and the states of its neighbors. It returns the next generation of cells as an array of probabilities.",
+              "params": [
+                {
+                  "name": "cells",
+                  "type": "array",
+                  "value": null,
+                  "description": "2D array of cells that will be used to generate the next generation."
+                }
+              ],
+              "returns": {
+                "type": "array",
+                "description": "an array of booleans representing the alive or dead state of each cell in the next generation."
+              }
             }
           }
         ]
