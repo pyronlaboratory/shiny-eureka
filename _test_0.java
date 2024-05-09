@@ -7,18 +7,20 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class CorsConfig {
+  
   @Value("${server.cors.allowedOrigins}")
   private String[] allowedOrigins;
+  
   @Bean
   public WebMvcConfigurer corsConfigurer() {
     
     return new WebMvcConfigurer() {
       /**
-       * Adds CORS mappings to a registry, allowing cross-origin resource sharing for all
-       * methods and headers, as well as exposing two specific headers (token and userId)
-       * with credentials enabled.
+       * Adds CORS mappings to the registry, allowing incoming requests from any origin,
+       * methods, headers, and credentials.
        * 
-       * @param registry Cors registry that the function adds mappings to.
+       * @param registry Cors registry that is being updated with new mapping configurations
+       * for handling Cross-Origin Resource Sharing (CORS) requests.
        */
       @Override
       public void addCorsMappings(CorsRegistry registry) {

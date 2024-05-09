@@ -7,15 +7,15 @@
         "description": "",
         "items": [
           {
-            "id": "a02a558c-c8ab-4323-ae9c-e49bd4c073ab",
+            "id": "91ab16d8-40a3-413b-9455-37459f1dcdbd",
             "ancestors": [],
             "type": "function",
             "name": "addCorsMappings",
             "location": {
               "offset": " ",
               "indent": 6,
-              "insert": 16,
-              "start": 16
+              "insert": 18,
+              "start": 18
             },
             "returns": false,
             "params": [
@@ -28,12 +28,12 @@
             "docLength": null,
             "length": 9,
             "comment": {
-              "description": "Adds CORS mappings to a registry, allowing cross-origin resource sharing for all methods and headers, as well as exposing two specific headers (token and userId) with credentials enabled.",
+              "description": "Adds CORS mappings to the registry, allowing incoming requests from any origin, methods, headers, and credentials.",
               "params": [
                 {
                   "name": "registry",
                   "type": "CorsRegistry",
-                  "description": "Cors registry that the function adds mappings to."
+                  "description": "Cors registry that is being updated with new mapping configurations for handling Cross-Origin Resource Sharing (CORS) requests."
                 }
               ],
               "returns": null
