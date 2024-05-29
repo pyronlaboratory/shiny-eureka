@@ -10,7 +10,6 @@ const search = (arr, x, start, end) => {
   }
 };
 
-
 const getApplicationID = () => {
   var appID = "";
   gs.log("appid: " + this.getParameter("sysparm_appName"), "pipeline");
