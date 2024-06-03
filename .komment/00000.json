@@ -4,15 +4,15 @@
     "path": "_test_0.java",
     "content": {
       "structured": {
-        "description": "A `CorsConfig` class that configures Cross-Origin Resource Sharing (CORS) for a Spring MVC web application. The configuration sets allowed origins, methods, and headers for CORS requests, and also enables credentials in the response. The `WebMvcConfigurer` interface is implemented to add CORS mappings to the registry.",
+        "description": "A Spring Boot configuration class named `CorsConfig` that enables CORS (Cross-Origin Resource Sharing) functionality for a web application. The class contains a single method `corsConfigurer()` that returns a `WebMvcConfigurer` bean, which adds CORS mappings to the Spring MVC configuration. The mappings allow requests from specified origins, methods, and headers, while also exposing credentials.",
         "items": [
           {
-            "id": "64aa2601-3049-b98e-854f-5c9969e1d273",
+            "id": "f13ea5b7-ef0e-14b8-944e-5065a220868f",
             "ancestors": [],
             "type": "function",
-            "description": "Is configured to enable Cross-Origin Resource Sharing (CORS) for the server. The class provides an array of allowed origins and allows all methods, headers, and credentials.",
+            "description": "Is used to configure Cross-Origin Resource Sharing (CORS) settings for a Spring MVC web application. The class provides a way to define allowed origins, methods, headers, and credentials for CORS mapping. The @Bean annotation is used to create an instance of WebMvcConfigurer, which adds CORS mappings to the registry.",
             "name": "CorsConfig",
-            "length": 23,
+            "length": 22,
             "location": {
               "start": 8,
               "insert": 8,
@@ -24,28 +24,28 @@
             "docLength": null
           },
           {
-            "id": "89913415-9908-df97-0b4c-c68c828545f0",
+            "id": "39bcc968-14b8-baa0-ba4b-63af94d1a5a3",
             "ancestors": [
-              "64aa2601-3049-b98e-854f-5c9969e1d273"
+              "f13ea5b7-ef0e-14b8-944e-5065a220868f"
             ],
             "type": "function",
-            "description": "Configures CORS settings for a web application, allowing incoming requests from specified origins, methods, and headers, while also exposing certain headers and enabling credentials.",
+            "description": "Configures Cross-Origin Resource Sharing (CORS) settings for a web application, allowing requests from specified origins and methods, and exposing specific headers.",
             "params": [],
             "returns": {
-              "type_name": "WebMvcConfigurer",
-              "description": "a configuration for enabling CORS (Cross-Origin Resource Sharing) on a web application, allowing requests from specified origins and methods, as well as including specific headers and credentials.\n\n* `allowedOrigins`: An array of origins allowed to access the server's resources.\n* `allowedMethods`: An array of HTTP methods allowed to be used by the origins listed in `allowedOrigins`.\n* `allowedHeaders`: An array of request headers allowed to be used by the origins listed in `allowedOrigins`.\n* `exposedHeaders`: An array of response headers that are exposed to origins listed in `allowedOrigins`.\n* `allowCredentials`: Whether credentials (e.g., authentication bearer tokens) should be allowed for the origins listed in `allowedOrigins`.",
+              "type_name": "instance",
+              "description": "a configuration for CORS (Cross-Origin Resource Sharing) that allows access to resources from any origin, with specific allowed methods and headers.\n\n* `allowedOrigins`: An array of origins that are allowed to make requests to the server.\n* `allowedMethods`: An array of HTTP methods that are allowed to be used in requests from allowed origins.\n* `allowedHeaders`: An array of header fields that are allowed to be used in responses from the server.\n* `exposedHeaders`: An array of header fields that are exposed to clients in responses.\n* `allowCredentials`: A boolean value indicating whether credentials (e.g., cookies, authorization headers) should be included in requests.",
               "complex_type": true
             },
             "usage": {
               "language": "java",
-              "code": "@Configuration\npublic class CorsConfig {\n \n  @Value(\"${server.cors.allowedOrigins}\")\n  private String[] allowedOrigins;\n  \n  @Bean\n  public WebMvcConfigurer corsConfigurer() {\n\n  \n    return new WebMvcConfigurer() {\n      @Override\n      public void addCorsMappings(CorsRegistry registry) {\n        registry.addMapping(\"/**\")\n            .allowedOrigins(allowedOrigins)\n            .allowedMethods(\"*\")\n            .allowedHeaders(\"*\")\n            .exposedHeaders(\"token\", \"userId\")\n            .allowCredentials(true);\n      }\n    };\n  }\n}\n",
-              "description": ""
+              "code": "@RestController\npublic class MyController {\n    @Autowired\n    private WebMvcConfigurer corsConfigurer;\n\n    @GetMapping(\"/\")\n    public String getHello() {\n        return \"Hello, World!\";\n    }\n}\n",
+              "description": "\nThe code above would enable CORS for all requests to the server, allowing any origin, methods, headers and credentials."
             },
             "name": "corsConfigurer",
             "length": 16,
             "location": {
-              "start": 14,
-              "insert": 14,
+              "start": 13,
+              "insert": 13,
               "offset": " ",
               "indent": 2,
               "comment": null
@@ -54,31 +54,31 @@
             "docLength": null
           },
           {
-            "id": "ab6fdfb4-81cb-7780-c240-2cb3427ee77a",
+            "id": "db9b1602-3d5d-9f9e-d04f-488635e7ff7c",
             "ancestors": [
-              "64aa2601-3049-b98e-854f-5c9969e1d273",
-              "89913415-9908-df97-0b4c-c68c828545f0"
+              "f13ea5b7-ef0e-14b8-944e-5065a220868f",
+              "39bcc968-14b8-baa0-ba4b-63af94d1a5a3"
             ],
             "type": "function",
-            "description": "Adds CORS mappings to a registry, allowing requests from any origin, method, and header, and exposing certain headers with credentials enabled.",
+            "description": "Adds mapping to the CORS registry, allowing requests from any origin and including specific headers and methods. It also sets allow credentials to true.",
             "params": [
               {
                 "name": "registry",
                 "type_name": "CorsRegistry",
-                "description": "Cors registry that the method adds mappings to.",
+                "description": "CorsRegistry object where methods are added to configure CORS settings for the application.",
                 "complex_type": false
               }
             ],
             "usage": {
               "language": "java",
-              "code": "@Override\npublic void addCorsMappings(CorsRegistry registry) {\n    registry.addMapping(\"/**\")\n        .allowedOrigins(new String[] {\"http://www.example.com\"})\n        .allowedMethods(\"*\")\n        .allowedHeaders(\"*\")\n        .exposedHeaders(\"token\", \"userId\")\n        .allowCredentials(true);\n}\n",
-              "description": "\nThis code would allow all HTTP requests from the given origin to access the application with the defined allowed methods, allowed headers and exposed headers."
+              "code": "@Override\npublic void addCorsMappings(CorsRegistry registry) {\n    registry.addMapping(\"/**\")\n            .allowedOrigins([\"https://example1.com\", \"https://example2.com\"])\n            .allowedMethods(\"*\")\n            .allowedHeaders(\"*\")\n            .exposedHeaders(\"token\", \"userId\")\n            .allowCredentials(true);\n}\n",
+              "description": ""
             },
             "name": "addCorsMappings",
             "length": 9,
             "location": {
-              "start": 19,
-              "insert": 19,
+              "start": 18,
+              "insert": 18,
               "offset": " ",
               "indent": 6,
               "comment": null
