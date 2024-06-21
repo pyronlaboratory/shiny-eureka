@@ -1,19 +1,20 @@
 
 /**
- * @description Checks if a specified value `x` exists within an array `arr` between
- * two given indices `start` and `end`. It recursively calls itself if the value is
- * not found within the middle index, or returns true if it is found.
+ * @description Takes an array and a target value `x`, as well as the starting and
+ * ending indices `start` and `end`. It recursively searches for the value in the
+ * given range. If found, it returns true, otherwise it returns false.
  * 
- * @param { array } arr - 1D array to be searched for the given value `x`.
+ * @param { array } arr - array to be searched for the specified `x`.
  * 
- * @param { number } x - searched value in the array.
+ * @param { number } x - value being searched for in the array.
  * 
- * @param { integer } start - index of the leftmost element that is to be searched
- * from in the array.
+ * @param { integer } start - index of the leftmost element that must be greater than
+ * or equal to the target value `x`.
  * 
- * @param { number } end - 2nd point of the range of indices for the array being searched.
+ * @param { integer } end - 2nd half of the array being searched for the given value
+ * `x`.
  * 
- * @returns { boolean } a boolean value indicating whether the target element is
+ * @returns { boolean } a boolean value indicating whether the specified element is
  * present in the array.
  */
 const search = (arr, x, start, end) => {
@@ -27,12 +28,10 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves an application ID based on a parameter passed in the URL.
- * If the parameter is present, it uses the value to create a GlideRecord object and
- * return the app ID as a number. Otherwise, it logs an error message and returns an
- * empty string.
+ * @description Retrieves and returns the application ID based on the input parameters.
+ * It logs the retrieved value to the pipeline for further processing.
  * 
- * @returns { string } a string representing the ID of the designated application.
+ * @returns { integer } a unique identifier for the specified application.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -46,18 +45,16 @@ const getApplicationID = () => {
 }
 
 /**
- * @description Takes an array of cell values as input, generates a new generation
- * of cells by iterating over each row, and calculates the alive state of each cell
- * based on its neighbors' alive state and the total neighbor count. It then pushes
- * the alive state of each cell in the next generation into an array.
+ * @description Takes an array of cells as input, loops through each row of cells,
+ * and updates the state of each cell based on its neighbors' states. It then returns
+ * the next generation of cells.
  * 
- * @param { array } cells - 2D array of cells, where each cell can be either alive
- * or dead, and is used to generate the next generation of cells through a process
- * of iterative calculation and assignment of alive or dead status based on neighboring
- * cells.
+ * @param { array } cells - 2D grid of cells, with each cell value represented by a
+ * number between 0 and 1, which is used to generate the next generation of cells
+ * through a simple probabilistic algorithm.
  * 
- * @returns { array } an array of booleans representing the state of each cell in the
- * next generation.
+ * @returns { array } a new generation of cells, where each cell is represented as a
+ * binary number indicating whether it is alive or dead.
  */
 function newGeneration(cells) {
   const nextGeneration = []
