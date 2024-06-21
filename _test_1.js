@@ -9,13 +9,7 @@ const search = (arr, x, start, end) => {
     return search(arr, x, mid + 1, end);
   }
 };
-/**
- * @description Retrieves the application ID based on the input parameter `sysparm_appName`.
- * If the app name is found in the CI business application, it returns the app ID as
- * a number.
- * 
- * @returns { string } a unique identifier for the specified application.
- */
+
 const getApplicationID = () => {
   var appID = "";
   gs.log("appid: " + this.getParameter("sysparm_appName"), "pipeline");
@@ -26,17 +20,7 @@ const getApplicationID = () => {
   }
  return appID;
 }
-/**
- * @description Generates a new generation of cells based on their neighbors' states
- * and alive status, using a set of rules to determine if a cell is alive or not in
- * the next generation.
- * 
- * @param { array } cells - 2D grid of cells to be simulated, with each cell value
- * representing whether it is alive or dead.
- * 
- * @returns { array } an array of booleans representing the alive cells in the next
- * generation.
- */
+
 function newGeneration(cells) {
   const nextGeneration = []
   for (let i = 0; i < cells.length; i++) {
