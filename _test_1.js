@@ -1,4 +1,20 @@
 
+/**
+ * @description Searches for a specific element `x` in an array `arr` within a given
+ * range `start` to `end`. It returns `true` if the element is found, and `false` otherwise.
+ * 
+ * @param { array } arr - array being searched for the specified value `x`.
+ * 
+ * @param { integer } x - value being searched for in the array.
+ * 
+ * @param { number } start - index of the left bound of the subarray to search within.
+ * 
+ * @param { integer } end - 2nd limit of the range of values that the function will
+ * search through in order to find the target value.
+ * 
+ * @returns { boolean } a boolean value indicating whether the specified element
+ * exists within the given range of an array.
+ */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
@@ -10,6 +26,11 @@ const search = (arr, x, start, end) => {
   }
 };
 
+/**
+ * @description Retrieves and returns the application ID based on provided parameters.
+ * 
+ * @returns { string } a unique identifier for an application.
+ */
 const getApplicationID = () => {
   var appID = "";
   gs.log("appid: " + this.getParameter("sysparm_appName"), "pipeline");
@@ -22,12 +43,11 @@ const getApplicationID = () => {
 }
 
 /**
- * @description Takes an array of cells as input, loops through each row, and determines
- * if each cell is alive based on its neighbors' state. It then generates a new
- * generation by pushing a row of alive or dead cells to the output array.
+ * @description Takes an array of cell states as input and generates a new generation
+ * of cell states based on a simple neighborhood interaction rule.
  * 
- * @param { array } cells - 2D grid of cells, whose state (alive or dead) and neighbors
- * are used to generate the next generation of cells in the population.
+ * @param { array } cells - 2D array of cells that will be used to generate the next
+ * generation.
  * 
  * @returns { array } an array of alive cells in the next generation.
  */
