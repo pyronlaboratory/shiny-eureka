@@ -1,3 +1,19 @@
+/**
+ * @description Searches for a specific value `x` in an array `arr`. It checks if the
+ * value is present in the middle of the array and recursively calls itself if it's
+ * not found there.
+ * 
+ * @param { array } arr - 2D array being searched for the given value `x`.
+ * 
+ * @param { number } x - value to be searched for in the array.
+ * 
+ * @param { number } start - index of the array where the search begins.
+ * 
+ * @param { number } end - 2nd index of the array where the search should stop.
+ * 
+ * @returns { boolean } a boolean value indicating whether the target element exists
+ * within the provided range of indices.
+ */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
@@ -8,6 +24,12 @@ const search = (arr, x, start, end) => {
     return search(arr, x, mid + 1, end);
   }
 };
+/**
+ * @description Retrieves the application ID based on the input parameters and logs
+ * the result to the pipeline log.
+ * 
+ * @returns { integer } a unique identifier for the specified business application.
+ */
 const getApplicationID = () => {
   var appID = "";
   gs.log("appid: " + this.getParameter("sysparm_appName"), "pipeline");
@@ -18,6 +40,18 @@ const getApplicationID = () => {
   }
  return appID;
 }
+/**
+ * @description Generates a new population of cells based on the current cells, by
+ * iterating over each cell and calculating the alive status using the neighboring
+ * cells' states and counts. It then pushes the alive status of each cell into an
+ * array, which is returned as the next generation.
+ * 
+ * @param { array } cells - 2D grid of live and dead cells, which is passed to the
+ * `newGeneration()` function to generate the next generation of cells based on the
+ * current state of the grid.
+ * 
+ * @returns { array } an array of alive cells in the next generation.
+ */
 function newGeneration(cells) {
   const nextGeneration = []
   for (let i = 0; i < cells.length; i++) {
