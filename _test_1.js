@@ -1,21 +1,4 @@
-/**
- * @description Checks if an element exists in a given array by determining its index
- * in the array based on two provided conditions: the starting and ending indices of
- * the array, and the searched element value.
- * 
- * @param { array } arr - array whose elements are being searched for the given `x`.
- * 
- * @param { number } x - value being searched for in the array.
- * 
- * @param { integer } start - index of the leftmost element to be included in the
- * search result.
- * 
- * @param { number } end - 2nd limit of the range over which the algorithm searches
- * for the target value.
- * 
- * @returns { boolean } a boolean value indicating whether the target element is found
- * within the provided range of indices.
- */
+
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
