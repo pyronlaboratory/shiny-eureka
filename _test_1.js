@@ -1,20 +1,4 @@
-/**
- * @description Takes an array, a target value, and two indices as input. It returns
- * true if the target value is found within the range of the indices, false otherwise.
- * 
- * @param { array } arr - array that contains the searched element.
- * 
- * @param { number } x - value being searched for in the array.
- * 
- * @param { integer } start - index of the left boundary of the range to search for
- * the target value `x` within the array `arr`.
- * 
- * @param { integer } end - 2nd index of the array where the target value (x) must
- * be located.
- * 
- * @returns { boolean } a boolean value indicating whether the specified element
- * exists in the given array.
- */
+
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
