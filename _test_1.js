@@ -1,4 +1,22 @@
 
+/**
+ * @description Evaluates whether a given element `x` is present in an array `arr`
+ * between `start` and `end`. It recursively searches for the element by comparing
+ * it to the middle element of the range, then recursively searching on either side
+ * of the midpoint if necessary.
+ * 
+ * @param { array } arr - array to be searched for the specified value `x`.
+ * 
+ * @param { integer } x - value being searched for in the array.
+ * 
+ * @param { number } start - index of the array where the search begins.
+ * 
+ * @param { number } end - 2nd index of the array from which to start searching for
+ * the specified value `x`.
+ * 
+ * @returns { boolean } a boolean indicating whether the value `x` is present in the
+ * array between `start` and `end`, inclusive.
+ */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
@@ -10,10 +28,10 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves an application ID based on a provided parameter and logs
- * the result for debugging purposes.
+ * @description Retrieves the application ID based on a given parameter and logs the
+ * result to the pipeline.
  * 
- * @returns { integer } an integer representing the application ID.
+ * @returns { string } a unique identifier for an application.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -26,13 +44,14 @@ const getApplicationID = () => {
  return appID;
 }
 /**
- * @description Generates a new generation of cells based on the current cells, using
- * a neighborhood algorithm to determine which cells are alive or dead in the next generation.
+ * @description Generates a new generation of cells based on the given cells, considering
+ * neighbors and alive status to determine the fate of each cell.
  * 
- * @param { array } cells - 2D array of cells to be evolved in each generation.
+ * @param { array } cells - 2D array of cells that will be used to generate the next
+ * generation.
  * 
- * @returns { array } a new generation of cells, where each cell's state (alive or
- * dead) is determined based on its neighbors and the overall count of alive cells.
+ * @returns { array } an array of booleans representing the alive cells in the next
+ * generation.
  */
 function newGeneration(cells) {
   const nextGeneration = []
