@@ -1,19 +1,21 @@
 /**
- * @description Checks if a given value `x` is present in an array `arr` within a
- * given range `start` and `end`. It returns `true` if `x` is found, or `false` otherwise.
+ * @description Checks if an element `x` is present in an array `arr`. It first
+ * calculates the middle index `mid` of the array, then checks if the element at the
+ * middle index is equal to `x`. If it is, the function returns `true`. If not, it
+ * recursively calls itself with the starting and ending indices modified accordingly.
  * 
- * @param { array } arr - array that contains the values to be searched for the
- * specified `x` value.
+ * @param { array } arr - array whose elements are being searched for the target value
+ * `x`.
  * 
  * @param { integer } x - value being searched for in the array.
  * 
- * @param { number } start - index of the leftmost element in the array that should
- * be searched for the specified value `x`.
+ * @param { integer } start - index of the array where the search should begin.
  * 
- * @param { number } end - 2nd index of the array where the target element `x` is located.
+ * @param { integer } end - 2nd boundary of the array to be searched for the specified
+ * value `x`.
  * 
- * @returns { boolean } a boolean value indicating whether the provided element is
- * present in the array within the specified range.
+ * @returns { boolean } a boolean indicating whether the value `x` is present in the
+ * array between `start` and `end`.
  */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
@@ -26,10 +28,10 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves the application ID based on the input parameter "sysparm_appName"
- * or "sysparm_appID". If the input is not provided, it returns an empty string.
+ * @description Retrieves and returns the application ID based on a parameter passed
+ * from the pipeline.
  * 
- * @returns { integer } a unique identifier for the specified application.
+ * @returns { integer } a unique identifier for an application.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -43,12 +45,13 @@ const getApplicationID = () => {
 }
 
 /**
- * @description Takes an array of cells as input, loops through each row, and calculates
- * the number of alive neighbors for each cell. Based on these calculations, it assigns
- * a value to each cell in the next generation.
+ * @description Generates a new population of cells by iterating over existing cells,
+ * calculating the number of alive neighbors and setting the state of each cell based
+ * on those calculations.
  * 
- * @param { array } cells - 2D array of cells that will be used to generate the next
- * generation.
+ * @param { array } cells - 2D grid of living and dead cells, which is used to calculate
+ * the next generation of cells through a process of cell division, migration, and
+ * death based on the neighboring cells' states.
  * 
  * @returns { array } an array of booleans representing the alive cells in the next
  * generation.
