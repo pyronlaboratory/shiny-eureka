@@ -1,21 +1,22 @@
 
 /**
- * @description Determines if a given value `x` is present in an array `arr` within
- * a specified range `start` to `end`. It returns `true` if the value exists, otherwise
- * it recursively searches for the value in half of the remaining range.
+ * @description Takes an array, a target value, and two indices as input. It checks
+ * if the target value is present in the array by comparing it to the middle element
+ * of the array, and recursively searches for the value in the remaining parts of the
+ * array if it is not found at the middle index.
  * 
- * @param { array } arr - array to be searched for the specified value `x`.
+ * @param { array } arr - array that is searched for the specified `x`.
  * 
  * @param { integer } x - value being searched for in the array.
  * 
- * @param { number } start - index of the left-hand side of the halfway point of the
- * array being searched.
+ * @param { integer } start - index of the left edge of the range of values to search
+ * within the array.
  * 
- * @param { number } end - 2nd index of the array that the function searches for the
- * given `x`.
+ * @param { integer } end - 2nd index of the array that the function should search
+ * for the specified value `x`.
  * 
- * @returns { boolean } a boolean value indicating whether the target element is found
- * within the given range.
+ * @returns { boolean } a boolean indicating whether the value `x` is present in the
+ * array between `start` and `end`, inclusive.
  */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
@@ -28,10 +29,9 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves the application ID based on provided parameters and logs
- * the result to the pipeline log.
+ * @description Retrieves and returns the application ID based on given parameters.
  * 
- * @returns { string } a unique identifier for a business application.
+ * @returns { string } a string representing the application ID.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -45,15 +45,16 @@ const getApplicationID = () => {
 }
 
 /**
- * @description Takes an array of cell values as input, loops through each row of
- * cells, and calculates the number of alive neighbors for each cell. Based on the
- * count of alive neighbors and the initial value of the cell, it returns a new
- * generation of cells.
+ * @description Takes an array of cell states as input and generates the next generation
+ * of cells by iterating over each row, counting the number of alive neighbors, and
+ * setting the state of each cell based on its current state and the number of alive
+ * neighbors it has.
  * 
- * @param { array } cells - 2D array of cells to be generated into the next generation.
+ * @param { array } cells - 2D array of cells to be iterated over and modified in the
+ * new generation.
  * 
- * @returns { array } a two-dimensional array representing the next generation of
- * cells, with each cell value indicating whether it is alive or dead.
+ * @returns { array } a new generation of cells, where each cell's state (alive or
+ * dead) is determined based on its neighbors and the number of alive neighbors.
  */
 function newGeneration(cells) {
   const nextGeneration = []
