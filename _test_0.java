@@ -5,12 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/**
- * Is used to configure cross-origin resource sharing (CORS) for a Spring Web MVC
- * application. The class provides a registry for adding mapping rules to allow CORS
- * requests from any origin, specify which methods, headers, and credentials are
- * allowed, and enable credential support.
- */
 @Configuration
 public class CorsConfig {
   @Value("${server.cors.allowedOrigins}")
