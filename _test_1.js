@@ -1,4 +1,23 @@
 
+/**
+ * @description Takes an array, a target value `x`, and two indices `start` and `end`.
+ * It returns `true` if the target value is found in the array between `start` and
+ * `end`, otherwise it recursively searches the left or right half of the array.
+ * 
+ * @param { array } arr - 2D array that contains the elements to be searched for the
+ * given `x` value.
+ * 
+ * @param { number } x - value being searched for in the array.
+ * 
+ * @param { integer } start - index of the left half of the array to search from, and
+ * it must be greater than or equal to the index of the right half.
+ * 
+ * @param { integer } end - 2nd half of the array that should be searched for the
+ * given `x` value.
+ * 
+ * @returns { boolean } a boolean value indicating whether the specified element `x`
+ * exists within the given array range.
+ */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
@@ -10,11 +29,9 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves the application ID based on the input parameter `sysparm_appName`.
- * If the app name is found in the CI business application, it returns the app ID as
- * a number.
+ * @description Retrieves and returns the application ID based on the provided parameters.
  * 
- * @returns { string } a unique identifier for the specified application.
+ * @returns { string } a unique identifier for an application.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -27,15 +44,15 @@ const getApplicationID = () => {
  return appID;
 }
 /**
- * @description Generates a new generation of cells based on their neighbors' states
- * and alive status, using a set of rules to determine if a cell is alive or not in
- * the next generation.
+ * @description Generates a new population by iterating over the current generation's
+ * rows, calculating the number of alive neighbors and setting the corresponding cell
+ * to alive or dead based on certain conditions.
  * 
- * @param { array } cells - 2D grid of cells to be simulated, with each cell value
- * representing whether it is alive or dead.
+ * @param { array } cells - 2D grid of living and dead cells to be simulated, with
+ * each cell located at a position (i, j) in the grid.
  * 
- * @returns { array } an array of booleans representing the alive cells in the next
- * generation.
+ * @returns { array } a new generation of cells, represented as an array of alive or
+ * dead cells.
  */
 function newGeneration(cells) {
   const nextGeneration = []
