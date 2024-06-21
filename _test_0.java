@@ -5,12 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
- * Defines a Spring Boot configuration class that enables Cross-Origin Resource Sharing
- * (CORS) for an application. The class provides a mapping of all URLs to allow
- * origins, methods, headers, and credentials for CORS requests. The allowedOrigins
- * field is set using the @Value annotation from a property file, while the
- * corsConfigurer() method returns a WebMvcConfigurer instance that adds CORS mappings
- * to the registry.
+ * Defines a Spring Boot configuration class that enables cross-origin resource sharing
+ * (CORS) for an application by providing mappings for all URLs, origins, methods,
+ * headers, and credentials. The class uses the @Value annotation to set the
+ * allowedOrigins field and provides a mapping of all URLs to allow origins, methods,
+ * headers, and credentials for CORS requests through the corsConfigurer() method.
  */
 @Configuration
 public class CorsConfig {
@@ -18,22 +17,20 @@ public class CorsConfig {
   private String[] allowedOrigins;
   
   /**
-   * Adds CORS mappings to enable cross-origin resource sharing for all URLs and allows
-   * requests from any origin, methods, headers, and credentials.
+   * Adds CORS mappings to a registry, allowing cross-origin resource sharing for all
+   * resources by specifying allowed origins, methods, headers, and credentials.
    * 
-   * @returns a configuration for CORS (Cross-Origin Resource Sharing) that allows
-   * requests from any origin to access resources from the application.
+   * @returns a configuration for cross-origin resource sharing (CORS) settings, allowing
+   * requests from specified origins and methods, and including specific headers and credentials.
    * 
-   * * `allowedOrigins`: An array of origins that are allowed to make requests to the
-   * server.
-   * * `allowedMethods`: An array of HTTP methods that are allowed to be used in requests
-   * from allowed origins.
-   * * `allowedHeaders`: An array of headers that are allowed to be used in responses
-   * from the server.
-   * * `exposedHeaders`: An array of headers that can be exposed in responses to
-   * client-side applications.
-   * * `allowCredentials`: A boolean value indicating whether credentials (e.g.,
-   * authentication tokens) can be included in requests.
+   * * `registry`: The Cors registry that can be modified with new mappings for
+   * cross-origin resource sharing (CORS) settings.
+   * * `allowedOrigins`: The list of allowed origins for accessing resources.
+   * * `allowedMethods`: The list of allowed HTTP methods for accessing resources.
+   * * `allowedHeaders`: The list of allowed headers for accessing resources.
+   * * `exposedHeaders`: The list of headers that are exposed to the client.
+   * * `allowCredentials`: Whether credentials (e.g., cookies, authorization headers)
+   * should be allowed or not.
    */
   @Bean
   public WebMvcConfigurer corsConfigurer() {
@@ -41,11 +38,10 @@ public class CorsConfig {
     return new WebMvcConfigurer() {
       
       /**
-       * Adds CORS mappings to a registry, specifying allowed origins, methods, headers,
-       * and credentials for all resources.
+       * Adds a mapping to the CORS registry, allowing requests from any origin and specifying
+       * allowed methods, headers, and credentials.
        * 
-       * @param registry Cors registry that can be modified with new mappings for cross-origin
-       * resource sharing (CORS) settings.
+       * @param registry Cors registry that is being updated with the mapping configurations.
        */
       @Override
       public void addCorsMappings(CorsRegistry registry) {
