@@ -1,19 +1,3 @@
-/**
- * @description Searches for a specific value `x` in an array `arr`. It checks if the
- * value is present in the middle of the array and recursively calls itself if it's
- * not found there.
- * 
- * @param { array } arr - 2D array being searched for the given value `x`.
- * 
- * @param { number } x - value to be searched for in the array.
- * 
- * @param { number } start - index of the array where the search begins.
- * 
- * @param { number } end - 2nd index of the array where the search should stop.
- * 
- * @returns { boolean } a boolean value indicating whether the target element exists
- * within the provided range of indices.
- */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
