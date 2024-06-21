@@ -1,4 +1,23 @@
 
+/**
+ * @description Determines whether a given element `x` is present in an array `arr`
+ * within a specified range `start` to `end`. It recursively searches for the element
+ * by checking if it is the midpoint of the range, and then recursively checks the
+ * range on either side of the midpoint if it is not found there.
+ * 
+ * @param { array } arr - array whose elements are being searched for the specified
+ * `x`.
+ * 
+ * @param { number } x - value being searched for in the array.
+ * 
+ * @param { number } start - index of the left half of the array to search in.
+ * 
+ * @param { number } end - 2nd index of the array where the given value `x` is to be
+ * searched for.
+ * 
+ * @returns { boolean } a boolean value indicating whether the specified element is
+ * present in the array.
+ */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
@@ -9,6 +28,12 @@ const search = (arr, x, start, end) => {
     return search(arr, x, mid + 1, end);
   }
 };
+/**
+ * @description Retrieves the application ID based on the system parameter `sysparm_appName`
+ * or `sysparm_appid`. If the parameter is not provided, it returns an empty string.
+ * 
+ * @returns { string } a unique identifier for the specified application.
+ */
 const getApplicationID = () => {
   var appID = "";
   gs.log("appid: " + this.getParameter("sysparm_appName"), "pipeline");
@@ -21,14 +46,15 @@ const getApplicationID = () => {
 }
 
 /**
- * @description Takes an array of cells as input, loops through each row, and determines
- * if each cell is alive based on its neighbors' state. It then generates a new
- * generation by pushing a row of alive or dead cells to the output array.
+ * @description Generates a new generation of cells based on the current generation,
+ * considering the alive state and neighbor counts of each cell.
  * 
- * @param { array } cells - 2D grid of cells, whose state (alive or dead) and neighbors
- * are used to generate the next generation of cells in the population.
+ * @param { array } cells - 2D grid of cells, where each cell can be alive or dead,
+ * and is used to generate the next generation of cells through a process of reproduction
+ * and death based on the neighbors of each cell.
  * 
- * @returns { array } an array of alive cells in the next generation.
+ * @returns { array } an array of alive cells in the next generation, determined by
+ * the cell's current state and its neighbors.
  */
 function newGeneration(cells) {
   const nextGeneration = []
