@@ -1,21 +1,4 @@
 
-/**
- * @description Searches for a specific element `x` in an array `arr` between two
- * indices `start` and `end`. It returns `true` if the element is found, otherwise
- * it recursively calls itself with the updated indices.
- * 
- * @param { array } arr - array to be searched for the target value `x`.
- * 
- * @param { number } x - value being searched for in the array.
- * 
- * @param { integer } start - index of the left half of the array to search from.
- * 
- * @param { integer } end - 2nd limit of the search range and determines the last
- * index that is checked for a match or inequality with the input `x`.
- * 
- * @returns { boolean } a boolean value indicating whether the specified element
- * exists in the array.
- */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
