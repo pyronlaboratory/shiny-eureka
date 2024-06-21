@@ -1,22 +1,4 @@
 
-/**
- * @description Evaluates whether a given element `x` is present in an array `arr`
- * between `start` and `end`. It recursively searches for the element by comparing
- * it to the middle element of the range, then recursively searching on either side
- * of the midpoint if necessary.
- * 
- * @param { array } arr - array to be searched for the specified value `x`.
- * 
- * @param { integer } x - value being searched for in the array.
- * 
- * @param { number } start - index of the array where the search begins.
- * 
- * @param { number } end - 2nd index of the array from which to start searching for
- * the specified value `x`.
- * 
- * @returns { boolean } a boolean indicating whether the value `x` is present in the
- * array between `start` and `end`, inclusive.
- */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
@@ -27,12 +9,7 @@ const search = (arr, x, start, end) => {
     return search(arr, x, mid + 1, end);
   }
 };
-/**
- * @description Retrieves the application ID based on a given parameter and logs the
- * result to the pipeline.
- * 
- * @returns { string } a unique identifier for an application.
- */
+
 const getApplicationID = () => {
   var appID = "";
   gs.log("appid: " + this.getParameter("sysparm_appName"), "pipeline");
