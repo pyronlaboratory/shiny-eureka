@@ -1,22 +1,4 @@
 
-/**
- * @description Searches an array for a specific value `x`. It returns true if `x`
- * is found at any index between `start` and `end`, otherwise it recursively searches
- * the left or right half of the range based on the current midpoint.
- * 
- * @param { array } arr - array to be searched for the specified value `x`.
- * 
- * @param { integer } x - value being searched for in the array.
- * 
- * @param { integer } start - index of the leftmost element in the array that should
- * be searched for the specified value `x`.
- * 
- * @param { number } end - 2nd limit of the range for which the array elements are
- * searched for the specified value `x`.
- * 
- * @returns { boolean } a boolean value indicating whether the specified element
- * exists in the given array within the provided range.
- */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
@@ -28,13 +10,6 @@ const search = (arr, x, start, end) => {
   }
 };
 
-/**
- * @description Retrieves the application ID based on the given parameter "sysparm_appname"
- * or falls back to using a GlideRecord query to retrieve the app ID from the
- * cmdb_ci_business_app table.
- * 
- * @returns { integer } a unique identifier for an application.
- */
 const getApplicationID = () => {
   var appID = "";
   gs.log("appid: " + this.getParameter("sysparm_appName"), "pipeline");
@@ -45,19 +20,7 @@ const getApplicationID = () => {
   }
  return appID;
 }
-/**
- * @description Generates a new generation of cells based on their neighbors' alive
- * status and the current generation's cell value. It creates an array of alive cells,
- * where each element is either 1 (alive) or 0 (dead).
- * 
- * @param { array } cells - 2D array of cells, where each cell is either 0 (dead) or
- * 1 (alive), and it is used to generate the next generation of cells through a process
- * of probability-based reproduction.
- * 
- * @returns { array } an array of arrays representing the next generation of cells,
- * where each inner array represents a cell and contains a value indicating whether
- * the cell is alive or not.
- */
+
 function newGeneration(cells) {
   const nextGeneration = []
   for (let i = 0; i < cells.length; i++) {
