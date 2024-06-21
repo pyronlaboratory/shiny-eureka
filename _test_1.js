@@ -10,13 +10,6 @@ const search = (arr, x, start, end) => {
   }
 };
 
-
-/**
- * @description Retrieves the application ID based on the provided parameter and logs
- * the result for pipelined processing.
- * 
- * @returns { integer } a unique identifier for the specified business application.
- */
 const getApplicationID = () => {
   var appID = "";
   gs.log("appid: " + this.getParameter("sysparm_appName"), "pipeline");
