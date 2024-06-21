@@ -4,12 +4,12 @@
     "path": "_test_0.java",
     "content": {
       "structured": {
-        "description": "A `CorsConfig` class that configures Cross-Origin Resource Sharing (CORS) settings for a Spring MVC application. The class sets allowedOrigins, allowedMethods, allowedHeaders, exposedHeaders, and allowCredentials to enable secure communication. Additionally, the class provides a `WebMvcConfigurer` implementation that adds CORS mappings to a registry, allowing requests from any origin, method, and header, and exposing certain headers for authentication.",
+        "description": "A configuration class `CorsConfig` that enables cross-origin resource sharing (CORS) for a Spring MVC application. The class sets allowed origins, methods, headers, and credentials for secure communication. The `addCorsMappings()` method adds these mappings to a registry, which can then be used to configure CORS settings for the entire application.",
         "items": [
           {
-            "id": "7e7733c1-d710-dc8f-df4b-396813b51c2e",
+            "id": "468f4011-9dd5-d494-794e-f2edd98599c2",
             "ancestors": [],
-            "description": "Is used to configure Cross-Origin Resource Sharing (CORS) settings for a Spring MVC application. It allows origins specified in the configuration to access resources via a mapping of \"/**\". The class sets allowedOrigins, allowedMethods, allowedHeaders, exposedHeaders, and allowCredentials to enable secure communication.",
+            "description": "Is used to configure Cross-Origin Resource Sharing (CORS) settings for a Spring MVC application. The class sets allowedOrigins, allowedMethods, allowedHeaders, exposedHeaders, and allowCredentials to enable secure communication. The WebMvcConfigurer method adds CORS mappings to a registry, allowing requests from any origin and specifying allowed methods, headers, and credentials.",
             "name": "CorsConfig",
             "location": {
               "start": 13,
@@ -22,53 +22,53 @@
               }
             },
             "item_type": "class",
-            "length": 44,
+            "length": 45,
             "docLength": 6
           },
           {
-            "id": "be8d6759-a979-1b8e-2e44-9e83ebf44593",
+            "id": "6232b11e-95cf-758a-d948-b11919a59ab3",
             "ancestors": [
-              "7e7733c1-d710-dc8f-df4b-396813b51c2e"
+              "468f4011-9dd5-d494-794e-f2edd98599c2"
             ],
-            "description": "Adds CORS mappings to a registry, allowing requests from any origin, method, and header, and exposing certain headers for authentication.",
+            "description": "Adds CORS mappings to a registry, allowing requests from any origin and specifying allowed methods, headers, and credentials.",
             "params": [],
             "returns": {
               "type_name": "WebMvcConfigurer",
-              "description": "a configuration object that adds CORS mappings to allow requests from any origin, method, and header, while exposing certain headers for authentication.\n\n* `registry`: This is an instance of `CorsRegistry`, which contains the mapping configuration for the API.\n* `allowedOrigins`: A list of origins that are allowed to make requests to the API.\n* `allowedMethods`: A list of HTTP methods that are allowed to be used in requests to the API.\n* `allowedHeaders`: A list of headers that are allowed to be included in requests to the API.\n* `exposedHeaders`: A list of headers that are exposed for authentication purposes.\n* `allowCredentials`: A boolean value indicating whether credentials (e.g., bearer tokens) are allowed in requests to the API.",
+              "description": "a WebMvcConfigurer instance that adds CORS mappings to a registry.\n\n* The output is a `WebMvcConfigurer` instance, which is used to configure CORS settings for the application.\n* The function adds CORS mappings to a registry, allowing requests from any origin and specifying allowed methods, headers, and credentials.\n* The `allowedOrigins` property specifies the list of allowed origins for CORS requests.\n* The `allowedMethods` property specifies the list of allowed HTTP methods for CORS requests.\n* The `allowedHeaders` property specifies the list of allowed HTTP headers for CORS requests.\n* The `exposedHeaders` property specifies the list of headers that can be exposed in CORS responses.\n* The `allowCredentials` property indicates whether credentials (such as cookies, Authorization header) are allowed for CORS requests.",
               "complex_type": true
             },
             "usage": {
               "language": "java",
-              "code": "@Configuration\npublic class CorsConfig {\n  @Value(\"${server.cors.allowedOrigins}\")\n  private String[] allowedOrigins;\n  \n  @Bean\n  public WebMvcConfigurer corsConfigurer() {\n    return new WebMvcConfigurer() {\n      @Override\n      public void addCorsMappings(CorsRegistry registry) {\n        registry.addMapping(\"/**\")\n            .allowedOrigins(allowedOrigins)\n            .allowedMethods(\"*\")\n            .allowedHeaders(\"*\")\n            .exposedHeaders(\"token\", \"userId\")\n            .allowCredentials(true);\n      }\n    };\n  }\n}\n",
-              "description": "\nThe above configuration enables cross-origin resource sharing for any origin, method, and header. The exposed headers are the token and user ID."
+              "code": "@Configuration\npublic class MyAppConfig {\n  @Bean\n  public WebMvcConfigurer corsConfigurer() {\n    return new WebMvcConfigurer() {\n      @Override\n      public void addCorsMappings(CorsRegistry registry) {\n        registry.addMapping(\"/**\")\n            .allowedOrigins(allowedOrigins)\n            .allowedMethods(\"*\")\n            .allowedHeaders(\"*\")\n            .exposedHeaders(\"token\", \"userId\")\n            .allowCredentials(true);\n      }\n    };\n  }\n}\n",
+              "description": ""
             },
             "name": "corsConfigurer",
             "location": {
-              "start": 33,
+              "start": 35,
               "insert": 17,
               "offset": " ",
               "indent": 2,
               "comment": {
                 "start": 16,
-                "end": 32
+                "end": 34
               }
             },
             "item_type": "method",
-            "length": 23,
-            "docLength": 16
+            "length": 22,
+            "docLength": 18
           },
           {
-            "id": "6409b9ee-88ab-669f-3343-37224b915d62",
+            "id": "b2e3384d-869c-339e-4246-1794b588ba42",
             "ancestors": [
-              "7e7733c1-d710-dc8f-df4b-396813b51c2e",
-              "be8d6759-a979-1b8e-2e44-9e83ebf44593"
+              "468f4011-9dd5-d494-794e-f2edd98599c2",
+              "6232b11e-95cf-758a-d948-b11919a59ab3"
             ],
-            "description": "Adds CORS mappings to a registry, allowing requests from any origin and specifying allowed methods, headers, and credentials.",
+            "description": "Adds a mapping to the CORS registry, allowing requests from any origin and specifying allowed HTTP methods, headers, and credentials.",
             "params": [
               {
                 "name": "registry",
                 "type_name": "CorsRegistry",
-                "description": "Cors registry that is being updated with the mapping configuration.",
+                "description": "CorsRegistry object that is being modified by adding mappings to its registry.",
                 "complex_type": false
               }
             ],
@@ -79,18 +79,18 @@
             },
             "name": "addCorsMappings",
             "location": {
-              "start": 45,
-              "insert": 38,
+              "start": 46,
+              "insert": 40,
               "offset": " ",
               "indent": 6,
               "comment": {
-                "start": 37,
-                "end": 44
+                "start": 39,
+                "end": 45
               }
             },
             "item_type": "method",
             "length": 9,
-            "docLength": 7
+            "docLength": 6
           }
         ]
       }
