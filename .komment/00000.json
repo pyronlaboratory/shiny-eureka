@@ -4,12 +4,12 @@
     "path": "_test_0.java",
     "content": {
       "structured": {
-        "description": "A CorsConfig class that configures Cross-Origin Resource Sharing (CORS) for a web application. The class uses Spring packages and annotations to define mapping rules for allowing specific origins, methods, headers, and credentials for accessing resources on the server. The `addCorsMappings()` method adds these mappings to a registry, which can then be used by web applications to make CORS requests.",
+        "description": "A CorsConfig class that configures cross-origin resource sharing (CORS) for a Spring MVC web application. The class sets up mapping rules in a Cors registry, allowing requests from any origin and specifying allowed methods, headers, and credentials. Specifically, the addCorsMappings method adds a mapping to the Cors registry for any URL, allowing requests from any origin and specifying allowed methods, headers, and credentials.",
         "items": [
           {
-            "id": "fd1d77a9-9ef1-ae8d-1449-c5b5b69b3995",
+            "id": "5de73311-a5d4-ae93-fc46-30ad86be17c1",
             "ancestors": [],
-            "description": "Defines a configuration for Cross-Origin Resource Sharing (CORS) that allows requests from any origin to access resources on the server. The configuration sets allowed origins, methods, headers, and credentials for a given resource. Additionally, it exposes specific headers for authentication tokens and user IDs.",
+            "description": "Allows for the configuration of cross-origin resource sharing (CORS) rules for a Spring MVC application. The class provides a method to add mapping rules to a Cors registry, allowing specific origins, methods, headers, and credentials for a given resource. The class also provides a Bean annotation for creating a WebMvcConfigurer object that can be used to add CORS mapping rules to the registry.",
             "name": "CorsConfig",
             "location": {
               "start": 9,
@@ -19,75 +19,75 @@
               "comment": null
             },
             "item_type": "class",
-            "length": 43,
+            "length": 45,
             "docLength": null
           },
           {
-            "id": "ecdab47f-6b1e-a292-ed4e-8508fb8e4eb0",
+            "id": "0a30d740-1a15-07a5-aa43-6db8bc71feca",
             "ancestors": [
-              "fd1d77a9-9ef1-ae8d-1449-c5b5b69b3995"
+              "5de73311-a5d4-ae93-fc46-30ad86be17c1"
             ],
-            "description": "Adds CORS mapping rules to a registry, allowing specific origins, methods, headers, and credentials for a given resource.",
+            "description": "Adds CORS mappings to allow requests from any origin, specifying allowed methods, headers, and credentials.",
             "params": [],
             "returns": {
               "type_name": "WebMvcConfigurer",
-              "description": "a CorsRegistry object with mapping rules for cross-origin resource sharing.\n\n* `registry`: The Cors registry that is being modified by adding mapping rules for cross-origin resource sharing (CORS).\n* `allowedOrigins`: A list of origins that are allowed to access the resources.\n* `allowedMethods`: A list of HTTP methods that are allowed to be used when accessing the resources.\n* `allowedHeaders`: A list of headers that are allowed to be used when accessing the resources.\n* `exposedHeaders`: A list of headers that are exposed to the client.\n* `allowCredentials`: Whether credentials (e.g., cookies, authorization headers) are allowed or not.",
+              "description": "a mapping to the CORS registry, allowing requests from any origin with specific allowed methods, headers, and credentials.\n\n* `registry`: The Cors registry to which the mappings are being added.\n* `allowedOrigins`: An array of allowed origins for CORS requests.\n* `allowedMethods`: A string of allowed HTTP methods for CORS requests.\n* `allowedHeaders`: A string of allowed headers for CORS requests.\n* `exposedHeaders`: An array of exposed headers for CORS requests.\n* `allowCredentials`: A boolean value indicating whether credentials (e.g., cookies, authorizations) are allowed for CORS requests.",
               "complex_type": true
             },
             "usage": {
               "language": "java",
-              "code": "@Configuration\n public class WebConfig extends CorsConfig {\n    @Override\n    @Bean\n    public WebMvcConfigurer corsConfigurer() {\n        return super.corsConfigurer();\n    }\n}\n",
-              "description": ""
+              "code": "@Configuration\npublic class ApplicationConfig {\n  @Bean\n  public WebMvcConfigurer corsConfigurer() {\n    return new WebMvcConfigurer() {\n      @Override\n      public void addCorsMappings(CorsRegistry registry) {\n        registry.addMapping(\"/**\")\n            .allowedOrigins(Arrays.asList(\"http://localhost:3000\"))\n            .allowedMethods(\"*\")\n            .allowedHeaders(\"*\")\n            .exposedHeaders(\"token\", \"userId\")\n            .allowCredentials(true);\n      }\n    };\n  }\n}\n",
+              "description": "\nIn this example, the method corsConfigurer is called in the ApplicationConfig class and returns a new instance of WebMvcConfigurer. The addCorsMappings method is then used to define CORS mappings for the application."
             },
             "name": "corsConfigurer",
             "location": {
-              "start": 28,
+              "start": 31,
               "insert": 14,
               "offset": " ",
               "indent": 2,
               "comment": {
                 "start": 13,
-                "end": 27
+                "end": 30
               }
             },
             "item_type": "method",
-            "length": 23,
-            "docLength": 14
+            "length": 22,
+            "docLength": 17
           },
           {
-            "id": "a670e7e3-5ec9-c2bf-9341-d4e074ff2529",
+            "id": "8425aece-3f8d-5cb8-d448-84df030fd604",
             "ancestors": [
-              "fd1d77a9-9ef1-ae8d-1449-c5b5b69b3995",
-              "ecdab47f-6b1e-a292-ed4e-8508fb8e4eb0"
+              "5de73311-a5d4-ae93-fc46-30ad86be17c1",
+              "0a30d740-1a15-07a5-aa43-6db8bc71feca"
             ],
-            "description": "Adds mapping to CORS registry, allowing requests from any origin and specifying allowed methods, headers, and credentials.",
+            "description": "Adds CORS mappings to a registry, allowing requests from any origin and specifying allowed methods, headers, and credentials.",
             "params": [
               {
                 "name": "registry",
                 "type_name": "CorsRegistry",
-                "description": "Cors registry to which the mappings are being added.",
+                "description": "CorsRegistry object that contains the mappings for cross-origin resource sharing (CORS) policies.",
                 "complex_type": false
               }
             ],
             "usage": {
               "language": "java",
-              "code": "public class MyController {\n    @Autowired\n    private CorsConfig corsConfig;\n\n    @GetMapping(\"/test\")\n    public String test() {\n        return \"Hello World!\";\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // Create a new application context with the CorsConfig bean defined\n        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();\n        ctx.registerBean(CorsConfig.class);\n        ctx.refresh();\n\n        // Obtain an instance of the MyController class and call its test method\n        MyController myController = ctx.getBean(MyController.class);\n        String response = myController.test();\n        System.out.println(\"Response: \" + response);\n    }\n}\n",
-              "description": ""
+              "code": "@Override\npublic void addCorsMappings(CorsRegistry registry) {\n  registry.addMapping(\"/**\")\n    .allowedOrigins(Arrays.asList(\"*\"))\n    .allowedMethods(\"*\")\n    .allowedHeaders(\"*\")\n    .exposedHeaders(\"token\", \"userId\")\n    .allowCredentials(true);\n}\n",
+              "description": "\nThis is an example input for the method addCorsMappings, which consists of a CorsRegistry object with mappings for cross-origin resource sharing (CORS). The registry has been modified by adding mapping rules that allow any origin to access any resources on the server. Additionally, it specifies that all methods can be used when accessing the resources and allows any headers to be used."
             },
             "name": "addCorsMappings",
             "location": {
-              "start": 40,
-              "insert": 33,
+              "start": 42,
+              "insert": 36,
               "offset": " ",
               "indent": 6,
               "comment": {
-                "start": 32,
-                "end": 39
+                "start": 35,
+                "end": 41
               }
             },
             "item_type": "method",
             "length": 9,
-            "docLength": 7
+            "docLength": 6
           }
         ]
       }
