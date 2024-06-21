@@ -1,21 +1,3 @@
-/**
- * @description Searches for an element `x` in an array `arr` between two indices
- * `start` and `end`. It returns `true` if `x` is found, otherwise it recursively
- * searches the left or right half of the range.
- * 
- * @param { array } arr - array whose elements are being searched for the specified
- * value `x`.
- * 
- * @param { number } x - value being searched for in the array.
- * 
- * @param { number } start - index of the left side of the range to search for the
- * target value `x`.
- * 
- * @param { number } end - 2nd limit of the search range.
- * 
- * @returns { boolean } a boolean value indicating whether the element `x` is present
- * in the array `arr` between `start` and `end`.
- */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
