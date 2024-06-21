@@ -1,3 +1,20 @@
+/**
+ * @description Performs a binary search for an element `x` in an array `arr` within
+ * a given range `start` to `end`. It returns `true` if `x` is found, and `false` otherwise.
+ * 
+ * @param { array } arr - array whose elements are being searched for the given `x`
+ * value.
+ * 
+ * @param { number } x - value being searched for in the array.
+ * 
+ * @param { integer } start - index of the left boundary of the subarray to search within.
+ * 
+ * @param { number } end - 2nd index of the array where the target value `x` is
+ * located, and it is used to determine the range of values to search within the array.
+ * 
+ * @returns { boolean } a boolean value indicating whether the specified element is
+ * present in the array between the starting and ending indices.
+ */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end) / 2);
@@ -9,10 +26,10 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves the application ID based on the input parameters and logs
- * the result to the pipeline log.
+ * @description Retrieves an application ID from a CI business application database
+ * based on its name and logs the result to the pipeline log.
  * 
- * @returns { integer } a unique identifier for the specified business application.
+ * @returns { string } an application ID based on the input parameters.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -25,16 +42,15 @@ const getApplicationID = () => {
  return appID;
 }
 /**
- * @description Generates a new population of cells based on the current cells, by
- * iterating over each cell and calculating the alive status using the neighboring
- * cells' states and counts. It then pushes the alive status of each cell into an
- * array, which is returned as the next generation.
+ * @description Takes an array of cells as input, loops through each row of cells,
+ * and calculates the number of neighbors for each cell in that row. Based on these
+ * calculations, it assigns a value of 1 or 0 to each cell in the next generation.
  * 
- * @param { array } cells - 2D grid of live and dead cells, which is passed to the
- * `newGeneration()` function to generate the next generation of cells based on the
- * current state of the grid.
+ * @param { array } cells - 2D array of cells to be simulated and evolved over time
+ * through the new generation process defined by the function.
  * 
- * @returns { array } an array of alive cells in the next generation.
+ * @returns { array } an array of arrays, where each inner array represents the state
+ * of a cell in the next generation.
  */
 function newGeneration(cells) {
   const nextGeneration = []
