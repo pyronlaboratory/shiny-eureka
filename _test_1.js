@@ -1,19 +1,17 @@
 
 /**
- * @description Takes an array, a target value, and two indices as input. It checks
- * if the target value is present in the array by comparing it to the middle element
- * of the array, and recursively searches for the value in the remaining parts of the
- * array if it is not found at the middle index.
+ * @description Determines if a specific value `x` is present within an array `arr`.
+ * It does so by first checking if `x` is equal to the middle element of the array,
+ * then recursively searching for `x` in the left and right halves of the array if
+ * it is not found in the middle.
  * 
- * @param { array } arr - array that is searched for the specified `x`.
+ * @param { array } arr - array that is being searched for the specified value `x`.
  * 
- * @param { integer } x - value being searched for in the array.
+ * @param { number } x - value being searched for in the array.
  * 
- * @param { integer } start - index of the left edge of the range of values to search
- * within the array.
+ * @param { integer } start - index of the left edge of the subarray to search within.
  * 
- * @param { integer } end - 2nd index of the array that the function should search
- * for the specified value `x`.
+ * @param { integer } end - 2nd point in the array to search from after the start point.
  * 
  * @returns { boolean } a boolean indicating whether the value `x` is present in the
  * array between `start` and `end`, inclusive.
@@ -29,9 +27,10 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves and returns the application ID based on given parameters.
+ * @description Retrieves the application ID based on a given parameter and logs it
+ * to the pipeline log for debugging purposes.
  * 
- * @returns { string } a string representing the application ID.
+ * @returns { integer } a unique identifier for the given business application.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -45,16 +44,16 @@ const getApplicationID = () => {
 }
 
 /**
- * @description Takes an array of cell states as input and generates the next generation
- * of cells by iterating over each row, counting the number of alive neighbors, and
- * setting the state of each cell based on its current state and the number of alive
- * neighbors it has.
+ * @description Takes an array of cells as input and generates a new generation of
+ * cells based on the neighbors of each cell, using a set of rules to determine if a
+ * cell is alive or dead in the next generation.
  * 
- * @param { array } cells - 2D array of cells to be iterated over and modified in the
- * new generation.
+ * @param { array } cells - 2D array of cells, which is used to generate the next
+ * generation of cells by iterating over each cell and updating its state based on
+ * its neighbors.
  * 
- * @returns { array } a new generation of cells, where each cell's state (alive or
- * dead) is determined based on its neighbors and the number of alive neighbors.
+ * @returns { array } an array of booleans representing the alive cells in the next
+ * generation.
  */
 function newGeneration(cells) {
   const nextGeneration = []
