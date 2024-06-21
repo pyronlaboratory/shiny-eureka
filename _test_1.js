@@ -1,19 +1,20 @@
 /**
- * @description Checks if a given value `x` is present in an array `arr` within a
- * given range `start` and `end`. It returns `true` if `x` is found, or `false` otherwise.
+ * @description Checks if an element exists in a given array by determining its index
+ * in the array based on two provided conditions: the starting and ending indices of
+ * the array, and the searched element value.
  * 
- * @param { array } arr - array that contains the values to be searched for the
- * specified `x` value.
+ * @param { array } arr - array whose elements are being searched for the given `x`.
  * 
- * @param { integer } x - value being searched for in the array.
+ * @param { number } x - value being searched for in the array.
  * 
- * @param { number } start - index of the leftmost element in the array that should
- * be searched for the specified value `x`.
+ * @param { integer } start - index of the leftmost element to be included in the
+ * search result.
  * 
- * @param { number } end - 2nd index of the array where the target element `x` is located.
+ * @param { number } end - 2nd limit of the range over which the algorithm searches
+ * for the target value.
  * 
- * @returns { boolean } a boolean value indicating whether the provided element is
- * present in the array within the specified range.
+ * @returns { boolean } a boolean value indicating whether the target element is found
+ * within the provided range of indices.
  */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
@@ -26,10 +27,11 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves the application ID based on the input parameter "sysparm_appName"
- * or "sysparm_appID". If the input is not provided, it returns an empty string.
+ * @description Retrieves the application ID based on the input parameter `sysparm_appName`.
+ * If the app name is found in the CI business application, it returns the app ID as
+ * a number.
  * 
- * @returns { integer } a unique identifier for the specified application.
+ * @returns { string } a unique identifier for the specified application.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -41,14 +43,13 @@ const getApplicationID = () => {
   }
  return appID;
 }
-
 /**
- * @description Takes an array of cells as input, loops through each row, and calculates
- * the number of alive neighbors for each cell. Based on these calculations, it assigns
- * a value to each cell in the next generation.
+ * @description Generates a new generation of cells based on their neighbors' states
+ * and alive status, using a set of rules to determine if a cell is alive or not in
+ * the next generation.
  * 
- * @param { array } cells - 2D array of cells that will be used to generate the next
- * generation.
+ * @param { array } cells - 2D grid of cells to be simulated, with each cell value
+ * representing whether it is alive or dead.
  * 
  * @returns { array } an array of booleans representing the alive cells in the next
  * generation.
