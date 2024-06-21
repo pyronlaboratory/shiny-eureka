@@ -20,16 +20,6 @@ const getApplicationID = () => {
  return appID;
 }
 
-/**
- * @description Takes an array of cells as input, loops through each row, and determines
- * if each cell is alive based on its neighbors' state. It then generates a new
- * generation by pushing a row of alive or dead cells to the output array.
- * 
- * @param { array } cells - 2D grid of cells, whose state (alive or dead) and neighbors
- * are used to generate the next generation of cells in the population.
- * 
- * @returns { array } an array of alive cells in the next generation.
- */
 function newGeneration(cells) {
   const nextGeneration = []
   for (let i = 0; i < cells.length; i++) {
