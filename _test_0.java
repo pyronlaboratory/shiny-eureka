@@ -16,32 +16,28 @@ public class CorsConfig {
   private String[] allowedOrigins;
   
   /**
-   * Configures Cross-Origin Resource Sharing (CORS) settings for a web application.
-   * It adds mappings to allow incoming requests from specified origins, methods,
-   * headers, and credentials.
+   * Adds CORS mappings to a registry, allowing incoming requests from any origin and
+   * specifying allowed HTTP methods, headers, and credentials.
    * 
-   * @returns a configuration for CORS (Cross-Origin Resource Sharing) that allows
-   * requests from any origin to be made to the server.
+   * @returns a mapping configuration for CORS that allows incoming requests from any
+   * origin and specifies allowed HTTP methods, headers, and credentials.
    * 
-   * * `allowedOrigins`: an array of origins that are allowed to make requests to the
-   * application.
-   * * `allowedMethods`: an array of HTTP methods that are allowed for making requests
-   * from authorized origins.
-   * * `allowedHeaders`: an array of headers that are allowed for making requests from
-   * authorized origins.
-   * * `exposedHeaders`: an array of headers that are exposed in responses to authorized
-   * origins.
-   * * `allowCredentials`: a boolean indicating whether credentials (e.g., authentication
-   * tokens) should be included in allowed requests.
+   * * `registry`: The Cors registry that is being updated with the mapping configuration.
+   * * `allowedOrigins`: An array of allowed origins for incoming requests.
+   * * `allowedMethods`: An array of allowed HTTP methods for incoming requests.
+   * * `allowedHeaders`: An array of allowed headers for incoming requests.
+   * * `exposedHeaders`: An array of headers that can be exposed in responses.
+   * * `allowCredentials`: A boolean indicating whether credentials (e.g., authentication
+   * tokens) are allowed or not.
    */
   @Bean
   public WebMvcConfigurer corsConfigurer() {
     return new WebMvcConfigurer() {
       /**
-       * Adds CORS mappings to a registry, allowing incoming requests from any origin and
-       * specifying allowed HTTP methods, headers, and credentials.
+       * Adds CORS mappings to a registry, allowing requests from any origin and specifying
+       * allowed methods, headers, and credentials.
        * 
-       * @param registry Cors registry that is being updated with the mapping configuration.
+       * @param registry Cors registry that the method adds mappings to.
        */
       @Override
       public void addCorsMappings(CorsRegistry registry) {

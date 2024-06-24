@@ -1,16 +1,19 @@
 
 /**
- * @description Searches for a specific element `x` in an array `arr` within a given
- * range `start` to `end`. It returns `true` if the element is found, and `false` otherwise.
+ * @description Determines if a specific value `x` is present in an array `arr`. It
+ * first checks if `start` is greater than `end`, then calculates the midpoint of the
+ * range `start..end` and compares the value at that index to `x`. If it's equal, the
+ * function returns `true`, otherwise it recursively calls itself with the updated range.
  * 
- * @param { array } arr - array being searched for the specified value `x`.
+ * @param { array } arr - array to be searched for the target value `x`.
  * 
  * @param { integer } x - value being searched for in the array.
  * 
- * @param { number } start - index of the left bound of the subarray to search within.
+ * @param { integer } start - index of the left side of the range to search for the
+ * given value `x` within.
  * 
- * @param { integer } end - 2nd limit of the range of values that the function will
- * search through in order to find the target value.
+ * @param { integer } end - 2nd endpoint of the range within which the given target
+ * value `x` is searched for in the array `arr`.
  * 
  * @returns { boolean } a boolean value indicating whether the specified element
  * exists within the given range of an array.
@@ -27,9 +30,11 @@ const search = (arr, x, start, end) => {
 };
 
 /**
- * @description Retrieves and returns the application ID based on provided parameters.
+ * @description Retrieves the application ID from the given parameter or default value
+ * based on the system parameter. It logs the app ID to the pipeline for tracking
+ * purposes and returns the retrieved app ID.
  * 
- * @returns { string } a unique identifier for an application.
+ * @returns { integer } a string representing the ID of the specified application.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -43,13 +48,17 @@ const getApplicationID = () => {
 }
 
 /**
- * @description Takes an array of cell states as input and generates a new generation
- * of cell states based on a simple neighborhood interaction rule.
+ * @description Generates a new generation of cells based on the current state of the
+ * cells, using the neighbors of each cell to determine its fate (alive or dead). It
+ * takes an array of cells as input and returns an array of alive or dead cells in
+ * the next generation.
  * 
- * @param { array } cells - 2D array of cells that will be used to generate the next
- * generation.
+ * @param { array } cells - 2D grid of live and dead cells, which is used to calculate
+ * the number of alive neighbors for each cell in the current generation.
  * 
- * @returns { array } an array of alive cells in the next generation.
+ * @returns { array } an array of arrays representing the next generation of cells,
+ * where each cell's state (alive or dead) is determined by its current state and the
+ * number of alive neighbors it has.
  */
 function newGeneration(cells) {
   const nextGeneration = []
