@@ -1,20 +1,22 @@
 
 /**
- * @description Searches an array for a specific element `x`. It returns `true` if
- * `x` is found in the array between `start` and `end`, inclusive, and `false` otherwise.
+ * @description Checks if an element `x` is present in an array `arr` between `start`
+ * and `end` inclusive. It does so by dividing the range into two sub-ranges and
+ * recursively searching for `x` in each of them until it finds a match or determines
+ * that `x` is not present in the given range.
  * 
- * @param { array } arr - array to be searched for the target value `x`.
+ * @param { array } arr - array to be searched for the specified value `x`.
  * 
  * @param { number } x - value being searched for in the array.
  * 
- * @param { integer } start - index of the left side of the range to search for the
- * specified value `x`.
+ * @param { number } start - index of the leftmost element in the array that should
+ * be included in the search.
  * 
- * @param { integer } end - 2nd index of the array that the function searches for the
- * specified value `x`.
+ * @param { number } end - 2nd limit of the range of values searched for the given
+ * target value `x`.
  * 
- * @returns { boolean } a boolean value indicating whether the element `x` is present
- * in the array `arr` between indices `start` and `end`.
+ * @returns { boolean } a boolean value indicating whether the target element is
+ * present in the array.
  */
 const search = (arr, x, start, end) => {
   if (start > end) return false;
@@ -27,10 +29,10 @@ const search = (arr, x, start, end) => {
   }
 };
 /**
- * @description Retrieves and returns an application ID based on a parameter passed
- * from a previous function call.
+ * @description Retrieves the application ID based on provided parameters and logs
+ * the result to the pipeline log.
  * 
- * @returns { string } a unique identifier for the specified business application.
+ * @returns { integer } a unique identifier for a business application.
  */
 const getApplicationID = () => {
   var appID = "";
@@ -44,16 +46,15 @@ const getApplicationID = () => {
 }
 
 /**
- * @description Takes an array of cells as input and generates a new generation of
- * cells based on the rules of the Conway's Game of Life. It iterates through each
- * cell, considers its neighbors, and determines if it is alive or dead in the next
- * generation. The output is a new array of cells with the same size as the input.
+ * @description Takes an array of cell states as input and generates a new generation
+ * of cell states by iterating over each cell, considering its neighbors' states, and
+ * updating its own state based on a set of rules.
  * 
- * @param { array } cells - 2D array of cells, which is iterated over and processed
- * in the function to generate the next generation of cells.
+ * @param { array } cells - 2D array of cells to be evolved through the simulation,
+ * with each cell representing the state of a living or dead cell in the grid.
  * 
- * @returns { array } an array of arrays representing the next generation of a cellular
- * automaton.
+ * @returns { array } an array of arrays, where each inner array represents a generation
+ * of cells and contains a 0 or 1 representing whether the cell is alive.
  */
 function newGeneration(cells) {
   const nextGeneration = []
